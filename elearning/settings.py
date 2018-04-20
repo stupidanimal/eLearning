@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'courses',
     'xadmin',
     'crispy_forms'
+    'orgnazition',
 ]
 
 MIDDLEWARE = [
