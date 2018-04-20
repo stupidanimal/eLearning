@@ -10,11 +10,12 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
-import os
+import os,sys
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+# 将根目录下的extra_sourcecode加入到系统路径中
+sys.path.insert(0,os.path.join(BASE_DIR,'extra_sourcecode'))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
@@ -37,6 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'courses',
+    'xadmin',
+    'crispy_forms'
 ]
 
 MIDDLEWARE = [
@@ -74,11 +78,20 @@ WSGI_APPLICATION = 'elearning.wsgi.application'
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'NAME': 'elearning',
+    #     'USER':'root',
+    #     'PASSWORD':'111111',
+    #     'HOST':'127.0.0.1',
+    #     'PORT':'3306'
+    # }
+
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'elearning',
-        'USER':'root',
-        'PASSWORD':'111111',
+        'USER':'admin',
+        'PASSWORD':'admin123',
         'HOST':'127.0.0.1',
         'PORT':'3306'
     }
@@ -106,10 +119,10 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
+# 设置为中文
+LANGUAGE_CODE = 'zh-hans'
 
-LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Shanghai'
 
 USE_I18N = True
 
