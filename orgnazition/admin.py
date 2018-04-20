@@ -1,3 +1,7 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Teacher,CityDict,CourseOrg
+
+admin.site.register(Teacher)
+admin.site.register(CityDict)
+admin.site.register(CourseOrg)
