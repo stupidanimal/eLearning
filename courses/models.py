@@ -33,7 +33,7 @@ class Lesson(models.Model):
     章节信息表
     '''
     course=models.ForeignKey(Course,verbose_name='课程',on_delete=models.CASCADE)
-    name=models.CharField("章节名",max_length=100)
+    lessonname=models.CharField("章节名",max_length=100)
     createdatetime=models.DateTimeField("创建时间",default=datetime.now)
 
     class Meta:
@@ -60,7 +60,7 @@ class CourseResourse(models.Model):
     课程资源
     '''
     Course=models.ForeignKey(Course,verbose_name="课程",on_delete=models.CASCADE)
-    name=models.CharField("名称",max_length=100)
+    CourseResoursename=models.CharField("名称",max_length=100)
     download=models.FileField("资源文件",upload_to="course/resource/%Y/%m",max_length=100)
     add_time=models.DateTimeField("添加时间",default=datetime.now)
     class Meta:
