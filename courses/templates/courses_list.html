@@ -1,0 +1,69 @@
+{% extends 'shared/_Layout.html' %}
+{#    引入静态文件#}
+{% load staticfiles %}
+
+{% block top_css %}
+<link rel="stylesheet" href="{% static 'css/project/courses/default.css'%}">
+<link rel="stylesheet" href="{% static 'css/project/courses/normalize.css'%}">
+<link rel="stylesheet" href="{% static 'css/project/courses/styles.css'%}">
+{% endblock %}
+
+{% block top_js %}
+<script type="text/javascript">
+        $(function () {
+            var courses_arr = [];
+            var vm;
+            //1 加载json文件
+            $.ajax({
+                type: "GET",
+                url: "{% static 'files/data.json'%}",
+                datType: "json",
+                {#contentType:"application/json",#}
+                success: function (data) {
+                    data=$.parseJSON(data);
+                    $(data).each(function (index, value) {
+                        var temp_data = {
+                            "cid": value.cid,
+                            "coursename": value.coursename,
+                            "desc": value.desc,
+                            "detial": value.detial,
+                            "learn_times": value.learn_times,
+                            "students": value.students,
+                            "image": value.image,
+                            "click_nums": value.click_nums
+                        };
+                        courses_arr.push(temp_data);
+                        console.log(temp_data);
+                    });
+
+                    vm = new Vue({
+                        el: "#card_list",
+                        data: {
+                            items: courses_arr
+                        }
+                    });
+
+                    //2 加入鼠标移入时的效果
+                    $('.post-module').hover(function () {
+                        $(this).find('.description').stop().animate({
+                            height: 'toggle',
+                            opacity: 'toggle'
+                        }, 300);
+                    });
+                }
+            })
+
+        })
+
+    </script>
+{% endblock %}
+
+{% block content %}
+    {% include "_Partial_Top.html" %}
+    {% include "_Partial_Center.html" %}
+    {% include "_Partial_Foot.html"%}
+{% endblock %}
+
+{% block bottom_js %}
+
+{% endblock %}

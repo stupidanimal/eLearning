@@ -2,7 +2,8 @@ from django.db import models
 from datetime import datetime
 
 # Create your models here.
-class Course(models.Model):
+class \
+        Course(models.Model):
     '''
     课程信息
     '''

@@ -1,0 +1,45 @@
+{#中间-显示主体#}
+{#    引入静态文件#}
+{% load staticfiles %}
+<section>
+    {% block center %}
+        <article class="htmleaf-container">
+            <header class="htmleaf-header">
+                <h1>测试测试
+                    <span>测试测试</span>
+                </h1>
+            </header>
+            <div class='container' id="card_list">
+                <div class='column col-md-4' v-for="item in items">
+                    <div class='demo-title'>{% verbatim myblock %} {{item.coursename}}{% endverbatim myblock %}</div>
+                    <div class='post-module'>
+                        <div class='my_frame'>
+                            <img src='{% static 'img/img001.jpg'%}'>
+                        </div>
+                        <div class='post-content'>
+                            <div class="my_bottons">
+                                <div class='organization'>显示机构名称</div>
+                                <div class='consumetime'>时长</div>
+                            </div>
+
+                            <h1 class='title'>{% verbatim myblock %} {{item.coursename}}{% endverbatim myblock %}</h1>
+                            <h2 class='sub_title'>{% verbatim myblock %} {{item.detial}}{% endverbatim myblock %}</h2>
+                            <p class='description'>{% verbatim myblock %} {{item.desc}}{% endverbatim myblock %}</p>
+                            <div class='post-meta'>
+							<span class='timestamp'>
+								<!-- <i class='fa fa-clock-o'></i> -->
+								<i class="fa fa-users"></i>
+								{% verbatim myblock %} {{item.click_nums}}{% endverbatim myblock %}
+							</span>
+                                <span class='comments'>
+								<i class="fa fa fa-star"></i>
+								<a href='#'>{% verbatim myblock %} {{item.students}}{% endverbatim myblock %}</a>
+							</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+    {% endblock %}
+</section>

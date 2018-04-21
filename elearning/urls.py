@@ -15,6 +15,8 @@ Including another URLconf
 """
 # from django.contrib import admin
 from django.urls import path
+# url,include与上面的path不在一个模块下
+from django.conf.urls import url,include
 import xadmin
 xadmin.autodiscover()
 
@@ -23,5 +25,6 @@ xadmin.autodiscover()
 # xversion.register_models()
 
 urlpatterns = [
-    path('xadmin/', xadmin.site.urls),
+    url('xadmin/', xadmin.site.urls),
+    url('^course/', include('courses.urls', namespace="courses")),
 ]

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap/bootstrap.min.css'%}" />
+    <script type="application/javascript" src="{% static 'js/jq/jquery-1.11.1.min.js'%}"></script>
+    <script type="application/javascript" src="{% static 'js/bootstrap/bootstrap.min.js'%}"></script>
+    <script type="application/javascript" src="{% static 'js/vue/vue.js'%}"></script>
+    <link rel="stylesheet" href="{% static 'css/bootstrap/bootstrap.css'%}">
+    <link rel="stylesheet" href="{% static 'css/awesome/font-awesome.css'%}">
+
+    {% block top_css %}
+    {% endblock %}
+
+    {% block top_js %}
+    {% endblock %}
+</head>
+<body>
+{% block content %}
+{% endblock %}
+
+{% block bottom_js %}
+{% endblock %}
+</body>
+</html>
