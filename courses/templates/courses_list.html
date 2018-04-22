@@ -16,7 +16,8 @@
             //1 加载json文件
             $.ajax({
                 type: "GET",
-                url: "{% static 'files/data.json'%}",
+                {#url: "{% static 'files/data.json'%}",#}
+                url: "/course/list/",
                 datType: "json",
                 {#contentType:"application/json",#}
                 success: function (data) {
