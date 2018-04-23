@@ -14,7 +14,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 # from django.contrib import admin
-from django.urls import path
+
+from django.urls import path,include
 # url,include与上面的path不在一个模块下
 from django.conf.urls import url,include
 import xadmin
@@ -27,4 +28,5 @@ xadmin.autodiscover()
 urlpatterns = [
     url('xadmin/', xadmin.site.urls),
     url('^course/', include('courses.urls', namespace="courses")),
+    path('orgnazition/', include('orgnazition.urls')),
 ]

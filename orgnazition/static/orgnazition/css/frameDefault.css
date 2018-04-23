@@ -1,0 +1,18 @@
+
+    .icon {
+      height: 40px;
+      width: 40px;
+      background: lightseagreen;
+      border-radius: 40px;
+      transition:0.7s;
+    }
+
+    .icon:hover{
+        box-shadow:0 0 7px white;
+        box-shadow:0 0 10px white;
+    }
+
+    .container{
+        min-height:900px;
+    }
+

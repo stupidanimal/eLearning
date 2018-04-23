@@ -1,0 +1,82 @@
+{%load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'orgnazition/css/bootstrap.css'%}">
+    <link rel="stylesheet" href="{% static 'orgnazition/css/frameDefault.css'%}">
+    <script src="{%static 'orgnazition/js/jquery-3.3.1.min.js'%}"></script>
+    <script src="{%static 'orgnazition/js/bootstrap.js'%}"></script>
+    <style>
+    body {
+      font-family: 微软雅黑;
+    }
+        .teacher-card{
+    transition:0.5s;
+    }
+    .teacher-card:hover{
+    top:5;
+    box-shadow:0 0 10px black;
+    }
+  </style>
+</head>
+<body>
+<header class="navbar navbar-expand bg-dark flex-column flex-md-row text-white fixed-top">
+    <a href="#" class="navbar-brand">
+        <div class="icon"></div>
+    </a>
+    <div class="collapse navbar-collapse text-white">
+        <ul class="navbar-nav ">
+            <li class="nav-item ">
+                <a href="#" class="nav-link text-white">首页</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ">
+            <li class="nav-item">
+                <a href="#" class="nav-link text-white">公开课</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ">
+            <li class="nav-item">
+                <a href="#" class="nav-link text-white active">授课教师</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ">
+            <li class="nav-item">
+                <a href="#" class="nav-link text-white ">授课机构</a>
+            </li>
+        </ul>
+    </div>
+    <div class="form-inline">
+        <input type="search" name="" id="" class="form-control mr-2">
+        <button class="btn btn-outline-info" type='submit'>Search</button>
+    </div>
+</header>
+<div class="container" id="main" style="margin-top:100px;">
+    <div class="card-columns pl-5 pr-5">
+        {%for t in teachers%}
+        <div class="card mb-5 teacher-card" style="width:300px;height:400px;" >
+            <div class="card-img-top" style="height:200px;width:300px;display:inline-block;background:lightgray;"></div>
+            <div class="card-body">
+                <div class="card-title">
+                    <h5>{{t.name}}</h5>
+                </div>
+                <p class="card-text ml-5" >
+                    {{t.name}}就职于{{t.work_company}}，当前是{{t.work_position}}
+                </p>
+                <button class="btn btn-primary">教师介绍</button>
+            </div>
+
+        </div>
+        {%endfor%}
+    </div>
+</div>
+
+<footer class="navbar navbar-expand bg-dark">
+    <div class="text-white">CopyRight@Myself</div>
+</footer>
+</body>
+</html>
