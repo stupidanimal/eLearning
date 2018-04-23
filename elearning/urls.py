@@ -19,6 +19,7 @@ from django.urls import path,include
 # url,include与上面的path不在一个模块下
 from django.conf.urls import url,include
 import xadmin
+from rest_framework.documentation import include_docs_urls
 xadmin.autodiscover()
 
 # version模块自动注册需要版本控制的 Model
@@ -27,6 +28,8 @@ xadmin.autodiscover()
 
 urlpatterns = [
     url('xadmin/', xadmin.site.urls),
+    path('docs',include_docs_urls(title='my-dfr')),
+    path('api-auth/', include('rest_framework.urls')),
     url('^course/', include('courses.urls', namespace="courses")),
     path('orgnazition/', include('orgnazition.urls')),
 ]

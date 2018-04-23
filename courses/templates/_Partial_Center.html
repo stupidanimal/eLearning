@@ -14,7 +14,8 @@
                     <div class='demo-title'>{% verbatim myblock %} {{item.coursename}}{% endverbatim myblock %}</div>
                     <div class='post-module'>
                         <div class='my_frame'>
-                            <img src='{% static 'img/img001.jpg'%}'>
+{#                            <img src='{% static '' %}'>#}
+                            {% verbatim myblock %}<img v-bind:src="item.image">{% endverbatim myblock %}
                         </div>
                         <div class='post-content'>
                             <div class="my_bottons">

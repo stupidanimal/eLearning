@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'courses',
     'orgnazition',
     'xadmin',
-    'crispy_forms'
+    'crispy_forms',
+    'rest_framework'
     # 'orgnazition',
 ]
 
@@ -140,3 +141,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS=[
     os.path.join(BASE_DIR,'static'),
 ]
+
+# MEDIA_URL="media/imgs"
+# MEDIA_ROOT=os.path.join(BASE_DIR,'media/')

@@ -21,7 +21,7 @@
                 datType: "json",
                 {#contentType:"application/json",#}
                 success: function (data) {
-                    data=$.parseJSON(data);
+                    {#data=$.parseJSON(data);#}
                     $(data).each(function (index, value) {
                         var temp_data = {
                             "cid": value.cid,
