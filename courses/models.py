@@ -7,9 +7,9 @@ class Course(models.Model):
     课程信息
     '''
     level_choices=(
-        (1,"初级"),
-        (2,"中级"),
-        (3,"高级")
+        ("1","初级"),
+        ("2","中级"),
+        ("3","高级")
     )
     cid=models.AutoField(primary_key=True)
     coursename=models.CharField("课程名",max_length=50)
